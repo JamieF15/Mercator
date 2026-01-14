@@ -18,21 +18,49 @@ class PriceCalculatorTest {
 	void testCheckoutSingleApple() {
 		List<String> items = List.of("APPLE");
 		double total = calculator.checkoutItems(items);
-		assertEquals(0.60, total, 0.001); // 60p = 0.60
+		assertEquals(0.60, total, 0.001);
+	}
+
+	@Test
+	void testCheckoutTwoApples() {
+		List<String> items = List.of("APPLE", "APPLE");
+		double total = calculator.checkoutItems(items);
+		assertEquals(0.60, total, 0.001);
+	}
+
+	@Test
+	void testCheckoutThreeApples() {
+		List<String> items = List.of("APPLE", "APPLE", "APPLE");
+		double total = calculator.checkoutItems(items);
+		assertEquals(1.20, total, 0.001);
 	}
 
 	@Test
 	void testCheckoutSingleOrange() {
 		List<String> items = List.of("ORANGE");
 		double total = calculator.checkoutItems(items);
-		assertEquals(0.25, total, 0.001); // 25p = 0.25
+		assertEquals(0.25, total, 0.001);
 	}
 
 	@Test
-	void testCheckoutMultipleItems() {
-		List<String> items = List.of("APPLE", "ORANGE", "APPLE");
+	void testCheckoutThreeOranges() {
+		List<String> items = List.of("ORANGE", "ORANGE", "ORANGE");
 		double total = calculator.checkoutItems(items);
-		assertEquals(1.45, total, 0.001); // 60 + 25 + 60 = 145p
+		assertEquals(0.50, total, 0.001);
+	}
+
+	@Test
+	void testCheckoutFourOranges() {
+		List<String> items = List.of("ORANGE", "ORANGE", "ORANGE", "ORANGE");
+		double total = calculator.checkoutItems(items);
+		assertEquals(0.75, total, 0.001);
+	}
+
+	@Test
+	void testCheckoutMixedItems() {
+		List<String> items = List.of("APPLE", "ORANGE", "APPLE", "ORANGE", "ORANGE");
+		double total = calculator.checkoutItems(items);
+		assertEquals(1.10, total, 0.001);
 	}
 
 	@Test
