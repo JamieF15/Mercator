@@ -36,7 +36,7 @@ Tests cover single items, multiple items, offers, empty baskets, and unknown ite
 
 Uses JUnit 5. Run via IDE or command line.
 
-Git Workflow
+## Git Workflow
 
 Step 1: basic checkout -> git tag step-1
 
